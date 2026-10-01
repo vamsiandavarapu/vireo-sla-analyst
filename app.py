@@ -2,7 +2,7 @@
 Vireo Audio — Support SLA Analyst Web Application
 =================================================
 Interactive Analytical Dashboard & AI Operations Assistant for Support Operations.
-Built with Streamlit & Plotly (Light Theme System with Streamlit Red/Orange Accents & Simplified Navigation).
+Built with Streamlit & Plotly (Light Theme System with Streamlit Red/Orange Accents & 0.8x Compact Typography).
 """
 
 import streamlit as st
@@ -19,7 +19,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Comprehensive Light Theme CSS with Streamlit Coral/Orange Filters & Clean Typography
+# Comprehensive Light Theme CSS with 0.8x Scaled Sizing
 st.markdown("""
 <style>
     /* Global App Background & Main Canvas */
@@ -29,19 +29,19 @@ st.markdown("""
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     }
     
-    /* Main Header Titles */
+    /* Main Header Titles (0.8x Scaled) */
     .main-header {
-        font-size: 38px !important;
+        font-size: 30px !important;
         font-weight: 800 !important;
         color: #0f172a !important;
-        margin-bottom: 6px !important;
+        margin-bottom: 4px !important;
         letter-spacing: -0.5px;
     }
     
     .sub-header {
-        font-size: 18px !important;
+        font-size: 15px !important;
         color: #475569 !important;
-        margin-bottom: 28px !important;
+        margin-bottom: 22px !important;
         font-weight: 500 !important;
     }
 
@@ -52,20 +52,20 @@ st.markdown("""
     }
     
     .sidebar-title {
-        font-size: 22px !important;
+        font-size: 18px !important;
         font-weight: 800 !important;
         color: #0f172a !important;
-        margin-bottom: 20px !important;
-        padding-bottom: 10px !important;
+        margin-bottom: 16px !important;
+        padding-bottom: 8px !important;
         border-bottom: 2px solid #cbd5e1 !important;
     }
 
     /* FILTER WIDGET LABELS */
     label[data-testid="stWidgetLabel"], .stSelectbox label, .stMultiSelect label, .stFileUploader label {
-        font-size: 17px !important;
+        font-size: 14px !important;
         font-weight: 700 !important;
         color: #0f172a !important;
-        margin-bottom: 8px !important;
+        margin-bottom: 6px !important;
     }
 
     /* HIDE DEFAULT 200MB FILE UPLOADER LIMIT SUBTEXT */
@@ -75,10 +75,10 @@ st.markdown("""
 
     /* MULTISELECT & DROPDOWN CONTAINER */
     div[data-baseweb="select"] {
-        border-radius: 12px !important;
+        border-radius: 10px !important;
         border: 2px solid #cbd5e1 !important;
         background-color: #ffffff !important;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
     }
     
     div[data-baseweb="select"] * {
@@ -90,17 +90,17 @@ st.markdown("""
     div[data-baseweb="popover"], div[data-baseweb="menu"], ul[role="listbox"] {
         background-color: #ffffff !important;
         border: 2px solid #cbd5e1 !important;
-        border-radius: 12px !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+        border-radius: 10px !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
     }
 
     /* DROPDOWN OPTION LIST ITEMS */
     li[role="option"], div[role="option"], [data-baseweb="menu"] li, [data-baseweb="menu"] div {
         background-color: #ffffff !important;
         color: #0f172a !important;
-        font-size: 16px !important;
+        font-size: 14px !important;
         font-weight: 600 !important;
-        padding: 10px 14px !important;
+        padding: 8px 12px !important;
     }
 
     /* HOVERED / SELECTED OPTION ITEM */
@@ -113,26 +113,26 @@ st.markdown("""
     span[data-baseweb="tag"] {
         background-color: #ffe4e6 !important;
         border: 1.5px solid #fca5a5 !important;
-        border-radius: 8px !important;
-        padding: 4px 10px !important;
+        border-radius: 6px !important;
+        padding: 3px 8px !important;
     }
     
     span[data-baseweb="tag"] span {
         color: #991b1b !important;
         font-weight: 800 !important;
-        font-size: 14px !important;
+        font-size: 12px !important;
     }
 
-    /* STREAMLIT RED/ORANGE CUSTOM ACTION & DOWNLOAD BUTTONS */
+    /* STREAMLIT RED/ORANGE CUSTOM ACTION & DOWNLOAD BUTTONS (0.8x) */
     button[kind="primary"], .stDownloadButton button, div.stButton > button {
         background-color: #ff4b4b !important;
         color: #0f172a !important;
-        font-size: 16px !important;
+        font-size: 14px !important;
         font-weight: 800 !important;
-        border-radius: 12px !important;
+        border-radius: 10px !important;
         border: 1px solid #e2e8f0 !important;
-        padding: 12px 24px !important;
-        box-shadow: 0 4px 12px rgba(255, 75, 75, 0.25) !important;
+        padding: 10px 20px !important;
+        box-shadow: 0 4px 10px rgba(255, 75, 75, 0.25) !important;
         transition: all 0.2s ease !important;
     }
 
@@ -140,100 +140,100 @@ st.markdown("""
         background-color: #e03e3e !important;
         color: #0f172a !important;
         transform: translateY(-1px) !important;
-        box-shadow: 0 6px 16px rgba(255, 75, 75, 0.35) !important;
+        box-shadow: 0 6px 14px rgba(255, 75, 75, 0.35) !important;
     }
 
-    /* TOP KPI METRIC CARDS */
+    /* TOP KPI METRIC CARDS (0.8x Scaled) */
     .metric-card {
         background: #ffffff !important;
         border: 1.5px solid #cbd5e1 !important;
-        border-radius: 16px !important;
-        padding: 24px 28px !important;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
-        margin-bottom: 16px !important;
+        border-radius: 14px !important;
+        padding: 18px 22px !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+        margin-bottom: 14px !important;
     }
     
     .metric-label {
-        font-size: 14px !important;
+        font-size: 12px !important;
         font-weight: 800 !important;
         text-transform: uppercase !important;
         letter-spacing: 0.5px !important;
         color: #475569 !important;
-        margin-bottom: 8px !important;
+        margin-bottom: 6px !important;
     }
     
     .metric-value {
-        font-size: 36px !important;
+        font-size: 28px !important;
         font-weight: 800 !important;
         color: #0f172a !important;
         line-height: 1.1 !important;
     }
     
     .metric-subtitle {
-        font-size: 14px !important;
+        font-size: 12px !important;
         color: #64748b !important;
-        margin-top: 10px !important;
+        margin-top: 8px !important;
         font-weight: 600 !important;
     }
 
-    /* CALLOUT ALERT BOXES */
+    /* CALLOUT ALERT BOXES (0.8x) */
     .highlight-card {
         background: #fef2f2 !important;
         border: 1.5px solid #fecaca !important;
-        border-left: 6px solid #dc2626 !important;
-        border-radius: 14px !important;
-        padding: 24px 28px !important;
-        margin-bottom: 24px !important;
+        border-left: 5px solid #dc2626 !important;
+        border-radius: 12px !important;
+        padding: 18px 22px !important;
+        margin-bottom: 20px !important;
     }
     
     .highlight-title {
-        font-size: 20px !important;
+        font-size: 16px !important;
         font-weight: 800 !important;
         color: #991b1b !important;
-        margin-bottom: 10px !important;
+        margin-bottom: 8px !important;
     }
 
     .highlight-body {
-        font-size: 16px !important;
+        font-size: 13px !important;
         color: #7f1d1d !important;
-        line-height: 1.6 !important;
+        line-height: 1.5 !important;
     }
 
-    /* ENLARGED PROMINENT TABS */
+    /* TABS (0.8x Scaled) */
     button[data-baseweb="tab"] {
-        font-size: 19px !important;
+        font-size: 15px !important;
         font-weight: 700 !important;
-        padding: 16px 28px !important;
+        padding: 12px 22px !important;
         color: #475569 !important;
-        border-radius: 12px 12px 0px 0px !important;
+        border-radius: 10px 10px 0px 0px !important;
         background-color: transparent !important;
     }
     
     button[data-baseweb="tab"][aria-selected="true"] {
         color: #ff4b4b !important;
-        border-bottom: 4px solid #ff4b4b !important;
+        border-bottom: 3.5px solid #ff4b4b !important;
         background-color: #ffffff !important;
-        box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.04) !important;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03) !important;
     }
 
-    /* SECTION TITLES & PARAGRAPHS */
+    /* SECTION TITLES & PARAGRAPHS (0.8x) */
     .section-title {
-        font-size: 24px !important;
+        font-size: 19px !important;
         font-weight: 800 !important;
         color: #0f172a !important;
-        margin-top: 16px !important;
-        margin-bottom: 20px !important;
+        margin-top: 14px !important;
+        margin-bottom: 16px !important;
     }
     
     p, li, span {
-        font-size: 16px !important;
+        font-size: 13px !important;
         color: #1e293b !important;
-        line-height: 1.6 !important;
+        line-height: 1.5 !important;
     }
     
     /* TABLE CONTAINER */
     .stDataFrame {
-        border-radius: 12px !important;
+        border-radius: 10px !important;
         overflow: hidden !important;
         border: 1.5px solid #cbd5e1 !important;
         background-color: #ffffff !important;
@@ -388,25 +388,25 @@ def main():
             line_width=3,
             annotation_text="Proposed Target (15.0%)",
             annotation_position="bottom right",
-            annotation_font=dict(color="#059669", size=15, family="Inter, sans-serif")
+            annotation_font=dict(color="#059669", size=13, family="Inter, sans-serif")
         )
-        fig_weekly.update_traces(line_color="#dc2626", line_width=3.5, marker=dict(size=9, color="#991b1b"))
+        fig_weekly.update_traces(line_color="#dc2626", line_width=3.5, marker=dict(size=8, color="#991b1b"))
         fig_weekly.update_layout(
             template="plotly_white",
             height=600,
             paper_bgcolor='#ffffff',
             plot_bgcolor='#f8fafc',
-            font=dict(family="Inter, sans-serif", size=15, color="#0f172a"),
-            title=dict(font=dict(size=22, color="#0f172a", family="Inter, sans-serif")),
-            xaxis=dict(title_font=dict(size=16, color="#0f172a"), tickfont=dict(size=14, color="#0f172a"), gridcolor="#e2e8f0"),
-            yaxis=dict(title_font=dict(size=16, color="#0f172a"), tickfont=dict(size=14, color="#0f172a"), gridcolor="#e2e8f0"),
+            font=dict(family="Inter, sans-serif", size=13, color="#0f172a"),
+            title=dict(font=dict(size=18, color="#0f172a", family="Inter, sans-serif")),
+            xaxis=dict(title_font=dict(size=14, color="#0f172a"), tickfont=dict(size=12, color="#0f172a"), gridcolor="#e2e8f0"),
+            yaxis=dict(title_font=dict(size=14, color="#0f172a"), tickfont=dict(size=12, color="#0f172a"), gridcolor="#e2e8f0"),
             margin=dict(l=30, r=30, t=60, b=30)
         )
         st.plotly_chart(fig_weekly, use_container_width=True)
 
         col_w1, col_w2 = st.columns(2)
         with col_w1:
-            st.markdown('<div class="section-title" style="font-size: 21px !important;">Shift Breach Rate Comparison (Tier 1)</div>', unsafe_allow_html=True)
+            st.markdown('<div class="section-title" style="font-size: 17px !important;">Shift Breach Rate Comparison (Tier 1)</div>', unsafe_allow_html=True)
             shift_df = engine.get_shift_breakdown()
             
             # Enlarge chart height to 540px
@@ -420,22 +420,22 @@ def main():
                 labels={'breach_rate': 'Breach Rate (%)', 'shift': 'Roster Shift'},
                 color_discrete_sequence=['#dc2626', '#2563eb', '#059669']
             )
-            fig_shift.update_traces(texttemplate='%{text:.2f}%', textposition='outside', textfont=dict(size=16, color='#0f172a', family="Inter, sans-serif"))
+            fig_shift.update_traces(texttemplate='%{text:.2f}%', textposition='outside', textfont=dict(size=13, color='#0f172a', family="Inter, sans-serif"))
             fig_shift.update_layout(
                 template="plotly_white",
                 height=540,
                 showlegend=False,
                 paper_bgcolor='#ffffff',
                 plot_bgcolor='#f8fafc',
-                font=dict(family="Inter, sans-serif", size=15, color="#0f172a"),
-                title=dict(font=dict(size=20, color="#0f172a")),
-                xaxis=dict(title_font=dict(size=16, color="#0f172a"), tickfont=dict(size=15, color="#0f172a")),
-                yaxis=dict(title_font=dict(size=16, color="#0f172a"), tickfont=dict(size=14, color="#0f172a"), gridcolor="#e2e8f0")
+                font=dict(family="Inter, sans-serif", size=13, color="#0f172a"),
+                title=dict(font=dict(size=16, color="#0f172a")),
+                xaxis=dict(title_font=dict(size=14, color="#0f172a"), tickfont=dict(size=13, color="#0f172a")),
+                yaxis=dict(title_font=dict(size=14, color="#0f172a"), tickfont=dict(size=12, color="#0f172a"), gridcolor="#e2e8f0")
             )
             st.plotly_chart(fig_shift, use_container_width=True)
             
         with col_w2:
-            st.markdown('<div class="section-title" style="font-size: 21px !important;">SLA Credit Exposure by Support Channel</div>', unsafe_allow_html=True)
+            st.markdown('<div class="section-title" style="font-size: 17px !important;">SLA Credit Exposure by Support Channel</div>', unsafe_allow_html=True)
             channel_df = engine.get_channel_breakdown()
             
             # Enlarge chart height to 540px
@@ -449,17 +449,17 @@ def main():
                 labels={'sla_credit_inr': 'Total SLA Credit Loss (INR)', 'channel': 'Channel'},
                 color_discrete_sequence=['#ff4b4b', '#d97706', '#0284c7', '#059669']
             )
-            fig_chan.update_traces(texttemplate='₹%{text:,.0f}', textposition='outside', textfont=dict(size=16, color='#0f172a', family="Inter, sans-serif"))
+            fig_chan.update_traces(texttemplate='₹%{text:,.0f}', textposition='outside', textfont=dict(size=13, color='#0f172a', family="Inter, sans-serif"))
             fig_chan.update_layout(
                 template="plotly_white",
                 height=540,
                 showlegend=False,
                 paper_bgcolor='#ffffff',
                 plot_bgcolor='#f8fafc',
-                font=dict(family="Inter, sans-serif", size=15, color="#0f172a"),
-                title=dict(font=dict(size=20, color="#0f172a")),
-                xaxis=dict(title_font=dict(size=16, color="#0f172a"), tickfont=dict(size=15, color="#0f172a")),
-                yaxis=dict(title_font=dict(size=16, color="#0f172a"), tickfont=dict(size=14, color="#0f172a"), gridcolor="#e2e8f0")
+                font=dict(family="Inter, sans-serif", size=13, color="#0f172a"),
+                title=dict(font=dict(size=16, color="#0f172a")),
+                xaxis=dict(title_font=dict(size=14, color="#0f172a"), tickfont=dict(size=13, color="#0f172a")),
+                yaxis=dict(title_font=dict(size=14, color="#0f172a"), tickfont=dict(size=12, color="#0f172a"), gridcolor="#e2e8f0")
             )
             st.plotly_chart(fig_chan, use_container_width=True)
 
@@ -481,7 +481,7 @@ def main():
 
         col_m1, col_m2 = st.columns(2)
         with col_m1:
-            st.markdown('<div class="section-title" style="font-size: 21px !important;">Morning Shift: In-Shift Creation vs Overnight Carryover</div>', unsafe_allow_html=True)
+            st.markdown('<div class="section-title" style="font-size: 17px !important;">Morning Shift: In-Shift Creation vs Overnight Carryover</div>', unsafe_allow_html=True)
             m_comp = pd.DataFrame({
                 'Ticket Creation Window': ['Normal Hours (06:00-22:00 IST)', 'Overnight (22:00-06:00 IST)'],
                 'Breach Rate (%)': [kpis['morning_normal_breach_rate'], kpis['morning_overnight_breach_rate']]
@@ -500,22 +500,22 @@ def main():
                 },
                 title="Morning Shift Breach Rate Comparison"
             )
-            fig_m.update_traces(texttemplate='%{text:.2f}%', textposition='outside', textfont=dict(size=16, color='#0f172a', family="Inter, sans-serif"))
+            fig_m.update_traces(texttemplate='%{text:.2f}%', textposition='outside', textfont=dict(size=13, color='#0f172a', family="Inter, sans-serif"))
             fig_m.update_layout(
                 template="plotly_white",
                 height=560,
                 showlegend=False,
                 paper_bgcolor='#ffffff',
                 plot_bgcolor='#f8fafc',
-                font=dict(family="Inter, sans-serif", size=15, color="#0f172a"),
-                title=dict(font=dict(size=20, color="#0f172a")),
-                xaxis=dict(title_font=dict(size=16, color="#0f172a"), tickfont=dict(size=15, color="#0f172a")),
-                yaxis=dict(title_font=dict(size=16, color="#0f172a"), tickfont=dict(size=14, color="#0f172a"), gridcolor="#e2e8f0")
+                font=dict(family="Inter, sans-serif", size=13, color="#0f172a"),
+                title=dict(font=dict(size=16, color="#0f172a")),
+                xaxis=dict(title_font=dict(size=14, color="#0f172a"), tickfont=dict(size=13, color="#0f172a")),
+                yaxis=dict(title_font=dict(size=14, color="#0f172a"), tickfont=dict(size=12, color="#0f172a"), gridcolor="#e2e8f0")
             )
             st.plotly_chart(fig_m, use_container_width=True)
             
         with col_m2:
-            st.markdown('<div class="section-title" style="font-size: 21px !important;">Hourly Ticket Creation Distribution (IST)</div>', unsafe_allow_html=True)
+            st.markdown('<div class="section-title" style="font-size: 17px !important;">Hourly Ticket Creation Distribution (IST)</div>', unsafe_allow_html=True)
             t1_df = df_rostered[df_rostered['tier'] == 1].copy()
             hourly = t1_df.groupby(['created_hour_ist', 'is_breach']).size().reset_index(name='count')
             hourly['Status'] = hourly['is_breach'].map({True: 'Breached', False: 'Within SLA'})
@@ -536,11 +536,11 @@ def main():
                 height=560,
                 paper_bgcolor='#ffffff',
                 plot_bgcolor='#f8fafc',
-                font=dict(family="Inter, sans-serif", size=15, color="#0f172a"),
-                title=dict(font=dict(size=20, color="#0f172a")),
-                xaxis=dict(title_font=dict(size=16, color="#0f172a"), tickfont=dict(size=14, color="#0f172a")),
-                yaxis=dict(title_font=dict(size=16, color="#0f172a"), tickfont=dict(size=14, color="#0f172a"), gridcolor="#e2e8f0"),
-                legend=dict(font=dict(size=14, color="#0f172a"))
+                font=dict(family="Inter, sans-serif", size=13, color="#0f172a"),
+                title=dict(font=dict(size=16, color="#0f172a")),
+                xaxis=dict(title_font=dict(size=14, color="#0f172a"), tickfont=dict(size=12, color="#0f172a")),
+                yaxis=dict(title_font=dict(size=14, color="#0f172a"), tickfont=dict(size=12, color="#0f172a"), gridcolor="#e2e8f0"),
+                legend=dict(font=dict(size=12, color="#0f172a"))
             )
             st.plotly_chart(fig_h, use_container_width=True)
 
@@ -549,7 +549,7 @@ def main():
     # -------------------------------------------------------------
     with tab3:
         st.markdown('<div class="section-title">👥 Agent Performance & Roster Assignment Table</div>', unsafe_allow_html=True)
-        st.markdown('<p style="font-size: 15px; color: #475569; font-weight: 500;">Note: Tier 2 agents manage multi-touch resolution cases measured in days, excluded from first-response volume comparisons.</p>', unsafe_allow_html=True)
+        st.markdown('<p style="font-size: 13px; color: #475569; font-weight: 500;">Note: Tier 2 agents manage multi-touch resolution cases measured in days, excluded from first-response volume comparisons.</p>', unsafe_allow_html=True)
         
         agent_df = engine.get_agent_leaderboard()
         
@@ -609,7 +609,7 @@ def main():
         
         # 1. ANALYZE CUSTOMER COMPLAINTS (PERSISTED IN SESSION STATE)
         with col_ai1:
-            st.markdown('<div class="section-title" style="font-size: 21px !important;">Analyze Operational Complaint Themes</div>', unsafe_allow_html=True)
+            st.markdown('<div class="section-title" style="font-size: 17px !important;">Analyze Operational Complaint Themes</div>', unsafe_allow_html=True)
             
             if st.button("Analyze Customer Complaints", type="primary"):
                 with st.spinner("Classifying customer messages & agent notes..."):
@@ -635,9 +635,9 @@ def main():
                     template="plotly_white",
                     height=540,
                     paper_bgcolor='#ffffff',
-                    font=dict(family="Inter, sans-serif", size=15, color="#0f172a"),
-                    title=dict(font=dict(size=20, color="#0f172a")),
-                    legend=dict(font=dict(size=14, color="#0f172a"))
+                    font=dict(family="Inter, sans-serif", size=13, color="#0f172a"),
+                    title=dict(font=dict(size=16, color="#0f172a")),
+                    legend=dict(font=dict(size=12, color="#0f172a"))
                 )
                 st.plotly_chart(fig_themes, use_container_width=True)
                 
@@ -651,7 +651,7 @@ def main():
 
         # 2. CREATE MANAGER SUMMARY (PERSISTED IN SESSION STATE)
         with col_ai2:
-            st.markdown('<div class="section-title" style="font-size: 21px !important;">Create Manager Executive Summary</div>', unsafe_allow_html=True)
+            st.markdown('<div class="section-title" style="font-size: 17px !important;">Create Manager Executive Summary</div>', unsafe_allow_html=True)
             
             if st.button("Create Manager Summary", type="primary"):
                 with st.spinner("Synthesizing evidence-grounded manager summary..."):
