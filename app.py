@@ -2,7 +2,7 @@
 Vireo Audio — Support SLA Analyst Web Application
 =================================================
 Interactive Analytical Dashboard & AI Operations Assistant for Support Operations.
-Built with Streamlit & Plotly (Session State Persistent Results & Dynamic API Key Support).
+Built with Streamlit & Plotly (Light Theme System with Streamlit Red/Orange Accents & Simplified Navigation).
 """
 
 import streamlit as st
@@ -19,7 +19,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Comprehensive Light Theme CSS
+# Comprehensive Light Theme CSS with Streamlit Coral/Orange Filters & Clean Typography
 st.markdown("""
 <style>
     /* Global App Background & Main Canvas */
@@ -61,11 +61,16 @@ st.markdown("""
     }
 
     /* FILTER WIDGET LABELS */
-    label[data-testid="stWidgetLabel"], .stSelectbox label, .stMultiSelect label, .stFileUploader label, .stTextInput label {
+    label[data-testid="stWidgetLabel"], .stSelectbox label, .stMultiSelect label, .stFileUploader label {
         font-size: 17px !important;
         font-weight: 700 !important;
         color: #0f172a !important;
         margin-bottom: 8px !important;
+    }
+
+    /* HIDE DEFAULT 200MB FILE UPLOADER LIMIT SUBTEXT */
+    [data-testid="stFileUploaderDropzoneInstructions"] small {
+        display: none !important;
     }
 
     /* MULTISELECT & DROPDOWN CONTAINER */
@@ -104,17 +109,17 @@ st.markdown("""
         color: #ff4b4b !important;
     }
 
-    /* MULTISELECT TAG PILLS */
+    /* MULTISELECT TAG PILLS - Streamlit Coral/Orange Style */
     span[data-baseweb="tag"] {
         background-color: #ffe4e6 !important;
-        border: 1px solid #fecdd3 !important;
+        border: 1.5px solid #fca5a5 !important;
         border-radius: 8px !important;
         padding: 4px 10px !important;
     }
     
     span[data-baseweb="tag"] span {
-        color: #9f1239 !important;
-        font-weight: 700 !important;
+        color: #991b1b !important;
+        font-weight: 800 !important;
         font-size: 14px !important;
     }
 
@@ -349,11 +354,11 @@ def main():
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Main Navigation Tabs - RENAME TAB 5 TO "🤖 AI Intelligence"
+    # Main Navigation Tabs (SIMPLIFIED SHORT TAB NAMES)
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "📈 Executive Overview",
-        "🌅 Morning & Overnight Deep Dive",
-        "👥 Agent Performance Leaderboard",
+        "🌅 Morning Shift",
+        "👥 Agent Performance",
         "📱 Channel Breakdown",
         "🤖 AI Intelligence",
         "📥 Export Reports"
