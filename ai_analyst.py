@@ -36,6 +36,20 @@ class AIAnalyst:
             except Exception:
                 self.use_api = False
 
+    def get_status_info(self) -> Dict[str, str]:
+        if self.use_api:
+            return {
+                "mode": "Gemini Cloud LLM",
+                "badge": "🟢 Active Mode: Live Google Gemini 1.5 Flash AI API",
+                "color": "#059669"
+            }
+        else:
+            return {
+                "mode": "Local NLP Engine",
+                "badge": "ℹ️ Active Mode: Local Rule-Based NLP Classification",
+                "color": "#2563eb"
+            }
+
     def classify_breach_sample(self, df_breaches: pd.DataFrame, sample_size: int = 50) -> pd.DataFrame:
         """
         Classify a sampled set of breach ticket messages into operational failure themes.

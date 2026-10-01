@@ -604,6 +604,8 @@ def main():
         st.markdown('<div class="section-title">🤖 Customer Complaint Analysis & Executive Summary Generator</div>', unsafe_allow_html=True)
         
         ai = AIAnalyst()
+        status_info = ai.get_status_info()
+        st.markdown(f'<div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 10px 16px; margin-bottom: 16px; font-weight: 700; font-size: 14px; color: {status_info["color"]};">{status_info["badge"]}</div>', unsafe_allow_html=True)
         
         col_ai1, col_ai2 = st.columns([1, 1])
         
