@@ -51,7 +51,7 @@ Run the Streamlit application:
 ```bash
 streamlit run app.py
 ```
-*The web app will automatically open in your browser at `http://localhost:8501`.*
+*The web app will automatically open in your browser at `https://vireo-sla-analyst.streamlit.app/`.*
 
 ---
 
